@@ -16,6 +16,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 from dotenv import load_dotenv
+
 dotenv_path = os.path.join(BASE_DIR, 'setting.env')
 load_dotenv(dotenv_path)
 
@@ -30,16 +31,17 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
+    'channels',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'Channels',
 ]
 
 MIDDLEWARE = [
@@ -69,9 +71,19 @@ TEMPLATES = [
         },
     },
 ]
+ASGI_APPLICATION = 'DjangoChannels.asgi.application'
 
-WSGI_APPLICATION = 'DjangoChannels.wsgi.application'
+# WSGI_APPLICATION = 'DjangoChannels.wsgi.application'
 
+#
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("127.0.0.1", 6379)],
+        },
+    },
+}
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
@@ -106,7 +118,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
@@ -119,7 +130,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
