@@ -76,6 +76,7 @@ ASGI_APPLICATION = 'DjangoChannels.asgi.application'
 # WSGI_APPLICATION = 'DjangoChannels.wsgi.application'
 
 #
+# settings.py
 CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "channels_redis.core.RedisChannelLayer",
@@ -84,6 +85,7 @@ CHANNEL_LAYERS = {
         },
     },
 }
+
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
