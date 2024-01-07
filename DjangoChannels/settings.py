@@ -95,7 +95,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'djangochannels',
-        'USER': 'postgres',
+        'USER': 'harsh',
         'PASSWORD': os.environ.get('DB_PASSWORD'),
         'HOST': '127.0.0.1',
         'PORT': '5432',
