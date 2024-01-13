@@ -1,7 +1,7 @@
 from django.urls import path
 
-from .views import home
+from .views import messages_page
 
 urlpatterns = [
-    path('ss', home, name='home')
+    path('chat/', messages_page, name='home')
 ]
